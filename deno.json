@@ -2,6 +2,7 @@
   "name": "@viviengraffin/translation-vue",
   "version": "2.0.1",
   "exports": "./mod.ts",
+  "license": "MIT",
   "tasks": {
     "test": "deno test --allow-env --preload tests/setup.ts"
   },
