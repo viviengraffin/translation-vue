@@ -25,7 +25,8 @@
     "include": [
       "deno.json",
       "mod.ts",
-      "src"
+      "src",
+      "LICENSE"
     ]
   }
 }
