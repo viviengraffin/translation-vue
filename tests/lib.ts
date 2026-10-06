@@ -19,7 +19,7 @@ export async function createTranslationPluginSetup(
     },
   };
 
-  plugin.install(mockApp);
+  plugin.install!(mockApp);
 
   return {
     key: key!,

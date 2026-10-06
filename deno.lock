@@ -3,7 +3,7 @@
   "specifiers": {
     "jsr:@std/assert@^1.0.19": "1.0.19",
     "jsr:@std/internal@^1.0.12": "1.0.14",
-    "jsr:@viviengraffin/translation-core@^2.0.1": "2.0.1",
+    "jsr:@viviengraffin/translation-core@^2.0.2": "2.0.2",
     "npm:@vue/runtime-core@^3.5.43": "3.5.43",
     "npm:happy-dom@^20.14.5": "20.14.5",
     "npm:vue@^3.5.43": "3.5.43"
@@ -18,8 +18,8 @@
     "@std/internal@1.0.14": {
       "integrity": "291516b3d4c35024d6ffbc0a9df5bf4c64116e05b50012cf846710152d2ffdf7"
     },
-    "@viviengraffin/translation-core@2.0.1": {
-      "integrity": "7ae43b0f700b5eaeacf03f405381ec4e89e37c1419015093511c55b1e9d8a8f0"
+    "@viviengraffin/translation-core@2.0.2": {
+      "integrity": "c4da67847a9f5a18d003c4c8320e51be8155fc165e8fdef7939e1e375fde8ffd"
     }
   },
   "npm": {
@@ -206,7 +206,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@^1.0.19",
-      "jsr:@viviengraffin/translation-core@^2.0.1",
+      "jsr:@viviengraffin/translation-core@^2.0.2",
       "npm:@vue/runtime-core@^3.5.43",
       "npm:happy-dom@^20.14.5",
       "npm:vue@^3.5.43"
