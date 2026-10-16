@@ -6,18 +6,20 @@ import {
   TranslationNamespaces,
 } from "@viviengraffin/translation-core";
 import { type App, computed, ref } from "vue";
-import { TranslationVue } from "./class.ts";
+import { TranslationVue } from "@/class.ts";
 import { Environment } from "@viviengraffin/translation-core/frontend";
-import { PROVIDER_KEY } from "./const.ts";
+import { PROVIDER_KEY } from "@/const.ts";
 import type {
   CreateTranslationVuePluginReturns,
+  TranslationApi,
   TranslationVuePluginOptions,
-} from "./types.ts";
+} from "@/types.ts";
+import { Translation } from "@/component.ts";
 
 /**
  * Create translation-vue plugin
- * 
- * @param options - Options of plugin 
+ *
+ * @param options - Options of plugin
  */
 export const createTranslationVuePlugin = async (
   {
@@ -50,14 +52,13 @@ export const createTranslationVuePlugin = async (
 
   const instance = await builder.build();
 
-
-  const computedLocale = computed(()=>{
+  const computedLocale = computed(() => {
     locale.value;
     namespacesRef.value;
     return instance.getLocale();
   });
 
-  const computedNamespaces = computed(()=>{
+  const computedNamespaces = computed(() => {
     namespacesRef.value;
     return instance.getNamespaces();
   });
@@ -67,9 +68,14 @@ export const createTranslationVuePlugin = async (
       key: string,
       datas?: Record<string, unknown>,
     ) => {
-      const translated = instance.safeTranslate(key, datas);
+      return computed(()=>{
+        namespacesRef.value;
+        locale.value;
 
-      return translated.success ? translated.result : key;
+        const translated = instance.safeTranslate(key, datas);
+
+        return translated.success ? translated.result : key;
+      });
     },
 
     setLocale: async (newLocale?: string) => {
@@ -100,11 +106,12 @@ export const createTranslationVuePlugin = async (
     getNamespaces() {
       return computedNamespaces;
     },
-  };
+  } satisfies TranslationApi;
 
   return {
     install(app: App) {
       app.provide(PROVIDER_KEY, translationApi);
+      app.component("Translation", Translation);
     },
   };
 };

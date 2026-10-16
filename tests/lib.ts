@@ -1,6 +1,12 @@
 import type { TranslationApi, TranslationVuePluginOptions } from "@/types.ts";
 import { createTranslationVuePlugin } from "@/plugin.ts";
-import { DEFAULT_FALLBACK_LOCALE, EnvironmentBase, type Locale, toLocalArray, toUniqueArray } from "@viviengraffin/translation-core";
+import {
+  DEFAULT_FALLBACK_LOCALE,
+  EnvironmentBase,
+  type Locale,
+  toLocalArray,
+  toUniqueArray,
+} from "@viviengraffin/translation-core";
 
 type CreateTranslationPluginSetupReturns = { key: symbol; api: TranslationApi };
 
@@ -28,10 +34,15 @@ export async function createTranslationPluginSetup(
 }
 
 export class TestEnvironment extends EnvironmentBase {
-    override getLocales({ locale, fallbackLocale = DEFAULT_FALLBACK_LOCALE }: { locale?: string; fallbackLocale?: string; }): Locale[] {
-      return toLocalArray(toUniqueArray([
-        ...(locale ? [locale] : []),
-        fallbackLocale
-      ]));
-    }
+  override getLocales(
+    { locale, fallbackLocale = DEFAULT_FALLBACK_LOCALE }: {
+      locale?: string;
+      fallbackLocale?: string;
+    },
+  ): Locale[] {
+    return toLocalArray(toUniqueArray([
+      ...(locale ? [locale] : []),
+      fallbackLocale,
+    ]));
+  }
 }

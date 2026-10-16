@@ -1,10 +1,10 @@
 import { inject } from "vue";
-import { PROVIDER_KEY } from "./const.ts";
-import type { TranslationApi } from "./types.ts";
+import { PROVIDER_KEY } from "@/const.ts";
+import type { TranslationApi } from "@/types.ts";
 
 /**
  * Get the translation API
- * 
+ *
  * @example Simple translation
  * ```vue
  * <script setup>

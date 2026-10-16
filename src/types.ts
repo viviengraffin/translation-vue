@@ -1,11 +1,8 @@
+import type { ComputedRef, VNode } from "@vue/runtime-core";
 import type {
-  ComputedRef,
-  VNode,
-} from "@vue/runtime-core";
-import type {
+  EnvironmentArgument,
   LocaleFormat,
   TranslationContainer,
-  EnvironmentArgument
 } from "@viviengraffin/translation-core";
 import type { Plugin } from "vue";
 
@@ -24,7 +21,7 @@ export type TranslationVuePluginOptions = {
 };
 
 export type TranslationApi = {
-  t(key: string, datas?: Record<string, unknown>): VueTranslation | string;
+  t(key: string, datas?: Record<string, unknown>): ComputedRef<VueTranslation | string>;
   setLocale(locale?: string): Promise<void>;
   getLocale(): ComputedRef<string>;
   addNamespaces(...namespaces: string[]): Promise<void>;

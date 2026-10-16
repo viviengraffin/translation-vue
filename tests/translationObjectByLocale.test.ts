@@ -8,7 +8,7 @@ Deno.test("createTranslationVuePlugin - Must be provide API via provide", async 
     await createTranslationPluginSetup({
       translations,
       locale: "fr",
-      environment: TestEnvironment
+      environment: TestEnvironment,
     });
 
   assertEquals(providedKey!, PROVIDER_KEY);
