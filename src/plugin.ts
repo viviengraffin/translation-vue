@@ -68,7 +68,7 @@ export const createTranslationVuePlugin = async (
       key: string,
       datas?: Record<string, unknown>,
     ) => {
-      return computed(()=>{
+      return computed(() => {
         namespacesRef.value;
         locale.value;
 

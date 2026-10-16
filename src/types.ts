@@ -21,7 +21,10 @@ export type TranslationVuePluginOptions = {
 };
 
 export type TranslationApi = {
-  t(key: string, datas?: Record<string, unknown>): ComputedRef<VueTranslation | string>;
+  t(
+    key: string,
+    datas?: Record<string, unknown>,
+  ): ComputedRef<VueTranslation | string>;
   setLocale(locale?: string): Promise<void>;
   getLocale(): ComputedRef<string>;
   addNamespaces(...namespaces: string[]): Promise<void>;

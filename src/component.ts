@@ -1,7 +1,12 @@
-import { defineComponent, type PropType } from "vue";
+import { defineComponent, type PropType, type DefineComponent } from "vue";
 import { useTranslation } from "@/hook.ts";
 
-export const Translation = defineComponent({
+export type TranslationProps = {
+  name: string;
+  datas?: Record<string, any>;
+}
+
+export const Translation: DefineComponent<TranslationProps> = defineComponent({
   props: {
     name: {
       type: String,
