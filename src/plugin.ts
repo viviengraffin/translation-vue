@@ -5,7 +5,7 @@ import {
   TranslationBuilder,
   TranslationNamespaces,
 } from "@viviengraffin/translation-core";
-import { type App, computed, ref } from "vue";
+import { type App, computed, type ComputedRef, ref } from "vue";
 import { TranslationVue } from "@/class.ts";
 import { Environment } from "@viviengraffin/translation-core/frontend";
 import { PROVIDER_KEY } from "@/const.ts";
@@ -13,6 +13,7 @@ import type {
   CreateTranslationVuePluginReturns,
   TranslationApi,
   TranslationVuePluginOptions,
+  VueTranslation,
 } from "@/types.ts";
 import { Translation } from "@/component.ts";
 
@@ -63,19 +64,30 @@ export const createTranslationVuePlugin = async (
     return instance.getNamespaces();
   });
 
+  const translateFunction = (
+    key: string,
+    datas?: Record<string, unknown>,
+  ): ComputedRef<VueTranslation | string> => {
+    return computed(() => {
+      namespacesRef.value;
+      locale.value;
+
+      const translated = instance.safeTranslate(key, datas);
+
+      return translated.success ? translated.result : key;
+    });
+  };
+
   const translationApi = {
     t: (
       key: string,
       datas?: Record<string, unknown>,
     ) => {
-      return computed(() => {
-        namespacesRef.value;
-        locale.value;
+      return translateFunction(key, datas).value;
+    },
 
-        const translated = instance.safeTranslate(key, datas);
-
-        return translated.success ? translated.result : key;
-      });
+    translate(key, datas) {
+      return translateFunction(key, datas);
     },
 
     setLocale: async (newLocale?: string) => {

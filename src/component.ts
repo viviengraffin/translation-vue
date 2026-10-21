@@ -1,10 +1,10 @@
-import { defineComponent, type PropType, type DefineComponent } from "vue";
+import { type DefineComponent, defineComponent, type PropType } from "vue";
 import { useTranslation } from "@/hook.ts";
 
 export type TranslationProps = {
   name: string;
   datas?: Record<string, any>;
-}
+};
 
 export const Translation: DefineComponent<TranslationProps> = defineComponent({
   props: {
@@ -19,8 +19,8 @@ export const Translation: DefineComponent<TranslationProps> = defineComponent({
   },
 
   setup(props) {
-    const { t } = useTranslation();
+    const { translate } = useTranslation();
 
-    return () => t(props.name, props.datas).value;
+    return () => translate(props.name, props.datas).value;
   },
 });
