@@ -8,7 +8,7 @@ Based on
 
 ## Quick start
 
-1. Define your translations
+### Define your translations
 
 You can use Vue's h() function to create translations in regular TypeScript
 files.
@@ -54,7 +54,7 @@ export default {
 } satisfies TranslationObjectByLocale<VueTranslation>;
 ```
 
-2. Create and configure plugin
+### Create and configure the plugin
 
 In `main.ts` (in a vite project) :
 
@@ -86,7 +86,7 @@ createApp(App)
   .mount("#app");
 ```
 
-3. In vue files
+### In vue files
 
 `App.vue` :
 
