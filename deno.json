@@ -1,6 +1,6 @@
 {
   "name": "@viviengraffin/translation-vue",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "exports": "./mod.ts",
   "license": "MIT",
   "tasks": {
@@ -31,7 +31,8 @@
       "deno.json",
       "mod.ts",
       "src",
-      "LICENSE"
+      "LICENSE",
+      "README.md"
     ]
   }
 }
