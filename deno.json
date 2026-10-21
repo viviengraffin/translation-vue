@@ -21,6 +21,11 @@
       ]
     }
   },
+  "compilerOptions": {
+    "types": [
+      "./src/vue.d.ts"
+    ]
+  },
   "publish": {
     "include": [
       "deno.json",
